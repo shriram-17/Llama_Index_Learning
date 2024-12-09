@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Llama Index Response</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #e5e5e5;
+            --text-secondary: #a0a0a0;
+            --accent-color: #6a5acd;
+            --accent-hover: #7b68ee;
+            --gradient-start: #6a5acd;
+            --gradient-end: #4169e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.6;
+            perspective: 1000px;
+        }
+
+        .chat-container {
+            width: 700px;
+            background: rgba(22, 33, 62, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transform: rotateX(10deg);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-container:hover {
+            transform: rotateX(0deg) scale(1.02);
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .chat-body {
+            padding: 30px;
+        }
+
+        .chat-bubble {
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(106, 90, 205, 0.3);
+        }
+
+        .sent-bubble {
+            background: linear-gradient(to right, rgba(106, 90, 205, 0.2), rgba(65, 105, 225, 0.2));
+            color: var(--text-primary);
+        }
+
+        .received-bubble {
+            background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+            color: var(--text-secondary);
+        }
+
+        .chat-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Luxe Llama Index AI Assistant
+        </div>
+        <div class="chat-body">
+            <div class="chat-bubble sent-bubble">
+                <strong>Your Query:</strong>
+                <p>{{ query }}</p>
+            </div>
+            <div class="chat-bubble received-bubble">
+                <strong>Intelligent Response:</strong>
+                <p>{{ response }}</p>
+            </div>
+            <div class="chat-actions">
+                <a href="/" class="back-btn">New Intelligent Query</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
